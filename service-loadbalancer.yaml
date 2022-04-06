@@ -1,0 +1,15 @@
+# in this case nodeport is exposed at loadbalancer
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: ms-service-loadbalancer
+spec:
+  type: LoadBalancer
+  selector:
+    app: microserice-one
+  ports:
+    - protocol: TCP
+      port: 3200
+      targetPort: 3000
+      nodePort: 30010
